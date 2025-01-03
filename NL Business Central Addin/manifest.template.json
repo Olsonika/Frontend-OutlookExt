@@ -1,0 +1,42 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+    "id": "439e0d8d-0e76-44e9-9a18-e52a69701c79",
+    "manifestVersion": "1.17",
+    "version": "1.0.0",
+    "name": {
+        "short": "NL Business Central Addin",
+        "full": "Contoso Task Pane Add-in"
+    },
+    "description": {
+        "short": "A template to get started.",
+        "full": "This is the template to get started."
+    },
+    "developer": {
+        "name": "Contoso",
+        "websiteUrl": "https://www.contoso.com",
+        "privacyUrl": "https://www.contoso.com/privacy",
+        "termsOfUseUrl": "https://www.contoso.com/servicesagreement"
+    },
+    "validDomains": ["${URL}"],
+    "extensions": [
+        {
+            "runtimes": [
+                {
+                    "id": "TaskPaneRuntime",
+                    "type": "general",
+                    "code": {
+                        "page": "${URL}/taskpane.html"
+                    }
+                },
+                {
+                    "id": "CommandsRuntime",
+                    "type": "general",
+                    "code": {
+                        "page": "${URL}/commands.html",
+                        "script": "${URL}/commands.js"
+                    }
+                }
+            ]
+        }
+    ]
+}

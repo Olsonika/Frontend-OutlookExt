@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NaviLogic Business Central Outlook Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- Fluent UI for styling -->
+    <link rel="stylesheet"
+        href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+
+    <!-- Custom CSS for styling -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="ms-Fabric ms-font-m">
+    <div class="ms-Grid">
+        <!-- Header Section -->
+        <div id="project-header" class="ms-Grid-row ms-bgColor-themePrimary ms-fontColor-white header-section">
+            <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+                <h1 class="header-title">NaviLogic Business Central Outlook Add-in</h1>
+            </div>
+        </div>
+
+        <!-- Back Buttons Section -->
+        <div class="back-button-wrapper">
+            <button id="back-to-company-details" class="button ms-Button ms-Button--back">Back to Company Details</button>
+            <button id="back-to-companies" class="button ms-Button ms-Button--back">Back to Companies</button>
+            <button id="back-to-projects" class="button ms-Button ms-Button--back">Back to Projects</button>
+            <button id="back-to-tasks" class="button ms-Button ms-Button--back">Back to Tasks</button>
+        </div>
+
+        <!-- Sliding Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Available Companies -->
+            <div id="companies" class="content-static-section">
+            </div>
+            <!-- Company information (Initially Hidden) -->
+            <div id="customer-details" class="content-static-section">
+            </div>
+            <!-- Project Information Section (Initially Hidden) -->
+            <div id="project-info-section" class="ms-Grid-row content-section visible">
+                <div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12">
+                    <h2>Projects</h2>
+                    <table id="project-info-table" class="ms-Table">
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Task Information Section (Initially Hidden) -->
+            <div id="task-info-section" class="content-section hidden">
+                <h2>Tasks</h2>
+                <div id="task-details"></div>
+            </div>
+
+            <!-- Task Details Section (Initially Hidden) -->
+            <div id="task-details-section" class="content-section hidden">
+                <h2>Task Details</h2>
+                <p id="task-details"></p>
+            </div>
+            
+            <!-- Customer registration (Initially Hidden) -->
+            <div id="customer-registration-container" class="content-section hidden">
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script src="./taskpane.ts"></script>
+</body>
+
+</html>

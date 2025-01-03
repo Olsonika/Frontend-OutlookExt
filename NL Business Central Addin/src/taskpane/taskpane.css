@@ -1,0 +1,399 @@
+:root {
+    --main-color: #00374E;
+    --highlight-color: #005a9e;
+    --button-bg-color: #F29100;
+    --button-hover-bg-color: #d27700;
+    --card-bg-color: #f9f9f9;
+    --card-border-color: #ddd;
+    --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+    --text-color-dark: #333;
+    --text-color-light: #fff;
+    --line-height-compact: 1.2;
+    --line-gap: 4px;
+    --padding-compact: 10px;
+    --margin-compact: 8px;
+    --positive-color: green;
+    --negative-color: red;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color-dark);
+}
+
+.header-section {
+    padding: 15px;
+    background-color: var(--main-color);
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.content-section {
+    padding: 20px;
+    flex: 1;
+}
+
+.content-wrapper {
+    margin-top: 10px;
+}
+
+/* Shared Button Styling */
+.button {
+    background-color: var(--button-bg-color);
+    color: var(--text-color-light);
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+    background-color: var(--button-hover-bg-color);
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+/* Buttons in Company Card */
+.button-customer-details,
+.button-edit-customer {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-right: 5px;
+    flex-shrink: 0;
+    width: 120px; /* Static width */
+}
+
+/* Cards */
+.card {
+    border: 1px solid var(--card-border-color);
+    border-radius: 5px;
+    padding: var(--padding-compact);
+    background-color: var(--card-bg-color);
+    margin-bottom: var(--margin-compact);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card ul li {
+    margin-bottom: var(--line-gap);
+    font-size: 14px;
+}
+
+.card ul li strong {
+    color: var(--main-color);
+}
+
+/* Company Details */
+.company-details {
+    padding: var(--padding-compact);
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+}
+
+.company-details h3 {
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.company-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.company-details ul li {
+    margin-bottom: var(--line-gap);
+    line-height: var(--line-height-compact);
+    font-size: 14px;
+}
+
+.company-details ul li strong {
+    color: var(--main-color);
+}
+
+.company-details .balance {
+    font-weight: bold;
+    color: var(--positive-color);
+}
+
+.company-details .balance.negative {
+    color: var(--negative-color);
+}
+
+/* Contacts */
+.contacts-box {
+    padding: var(--padding-compact);
+}
+
+.primary-contact,
+.other-contacts {
+    margin-top: 15px;
+}
+
+.primary-contact h4,
+.other-contacts h4 {
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+
+.primary-contact ul,
+.other-contacts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.primary-contact ul li,
+.other-contacts ul li {
+    margin-bottom: var(--line-gap);
+    line-height: var(--line-height-compact);
+    font-size: 14px;
+}
+
+.other-contacts ul li {
+    border-bottom: 1px solid var(--card-border-color);
+    padding-bottom: var(--line-gap);
+    margin-bottom: var(--line-gap);
+}
+
+/* Invoices */
+.invoices-box {
+    padding: var(--padding-compact);
+}
+
+.invoices-box h4 {
+    color: var(--main-color);
+    margin-bottom: 5px;
+}
+
+/* Company Card Styling */
+.company-card {
+    border: 1px solid var(--card-border-color);
+    border-radius: 5px;
+    padding: var(--padding-compact);
+    background-color: var(--card-bg-color);
+    margin-bottom: var(--margin-compact);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.company-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--card-hover-shadow);
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--line-gap);
+    line-height: var(--line-height-compact);
+}
+
+.company-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.company-info ul li {
+    margin-bottom: var(--line-gap);
+    font-size: 14px;
+}
+
+.company-info ul li strong {
+    color: var(--main-color);
+}
+
+.company-card .button-container {
+    display: flex;
+    justify-content: space-between; /* Ensures proper spacing */
+    gap: 10px;
+    flex-wrap: nowrap; /* Prevents wrapping */
+    align-items: center;
+}
+
+/* Customer Registration Page Styling */
+#customer-registration-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 5px;
+    box-shadow: var(--card-shadow);
+    margin: 10px 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#customer-registration-container h2 {
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#customer-registration-container hr {
+    border: none;
+    height: 1px;
+    background-color: var(--card-border-color);
+    margin: 15px 0;
+}
+
+/* Section Headers */
+#customer-registration-container fieldset legend {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    padding: 0 10px;
+    border-bottom: 1px solid var(--card-border-color);
+    box-sizing: border-box;
+}
+
+/* Fields Styling */
+#customer-registration-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#customer-registration-container fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+#customer-registration-container label {
+    font-size: 14px;
+    color: var(--text-color-dark);
+    margin-bottom: 5px;
+}
+
+#customer-registration-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--card-border-color);
+    border-radius: 4px;
+    box-shadow: var(--card-shadow) inset;
+    background-color: var(--card-bg-color);
+    box-sizing: border-box;
+}
+
+#customer-registration-container input:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+    box-shadow: 0 0 5px var(--highlight-color);
+}
+
+/* Submit Button */
+#customer-registration-container button[type="submit"] {
+    align-self: center;
+    margin-top: 15px;
+    width: 90%;
+    max-width: 280px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: var(--button-bg-color);
+    color: var(--text-color-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#customer-registration-container button[type="submit"]:hover {
+    background-color: var(--button-hover-bg-color);
+    transform: scale(1.05);
+}
+
+#customer-registration-container button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Back Buttons */
+.ms-Button--back {
+    margin-top: 5px;
+}
+
+.view-projects-button {
+    margin-top: 10px;
+}
+
+/* Responsive Design for Narrow Layouts */
+@media (max-width: 320px) {
+    #customer-registration-container {
+        padding: 10px;
+    }
+
+    #customer-registration-container h2 {
+        font-size: 18px;
+    }
+
+    #customer-registration-container form {
+        gap: 10px;
+    }
+
+    #customer-registration-container input {
+        font-size: 12px;
+    }
+
+    #customer-registration-container button[type="submit"] {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card,
+    .company-details {
+        padding: 6px 10px;
+    }
+
+    .button {
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .company-card .button-container {
+        justify-content: center;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,47 @@
+name: Development Pipeline
+
+on:
+  push:
+    branches:
+      - preview-only
+
+jobs:
+  build-test-analyze-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: List files in the working directory (debugging)
+      run: ls -la
+
+    - name: List files in the NL Business Central Addin folder (debugging)
+      run: ls -la "NL Business Central Addin"
+
+    - name: Replace URL in manifest file
+      run: |
+        sed "s|\${URL}|${{ secrets.DEVELOPMENT_URL }}|g" "NL Business Central Addin/manifest.template.json" > "NL Business Central Addin/manifest.json"
+      env:
+        DEVELOPMENT_URL: ${{ secrets.DEVELOPMENT_URL }}
+
+    - name: Validate Manifest
+      run: npx office-addin-manifest validate "NL Business Central Addin/manifest.json"
+
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+    - name: Build the Docker image
+      run: docker build -f "NL Business Central Addin/Dockerfile" -t roharx/nl-outlook-development:${{ github.run_number }} "NL Business Central Addin"
+
+    - name: Tag the image as latest
+      run: docker tag roharx/nl-outlook-development:${{ github.run_number }} roharx/nl-outlook-development:latest
+
+    - name: Push the Docker image
+      run: docker push roharx/nl-outlook-development:${{ github.run_number }}
+
+    - name: Push the latest tag
+      run: docker push roharx/nl-outlook-development:latest
